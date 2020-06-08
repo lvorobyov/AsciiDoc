@@ -10,7 +10,7 @@ use Image::Size;
 
 my %attrs;
 my @rspans;
-my($listenv, $tabenv, $ncols, $title, $thead, $verbenv);
+my($listenv, $tabenv, $ncols, $title, $thead, $verbenv, $bibfile);
 
 sub get_width {
   my $width = 1;
@@ -78,6 +78,14 @@ sub to_latex {
     $scl =~ s/(.+)/[$1]/;
     $_ = qq($pre\\inputminted$scl\{$lang\}{$src}$post);
   } elsif (s/^latexmath:\[\$\$\s*(.+?)\s*\$\$\]\s*\[{2}([\w:]+)\]{2}/\\begin{equation}\\label{$2}\n$1\n\\end{equation}/) {
+  } elsif (s/^:toc:$/\\tableofcontents/) {
+  } elsif (s/^:bibtex-file: (.+)$//) {
+	  $bibfile = $1;
+  } elsif (s/^:bibtex-style: (.+)$/\\bibliographystyle{$1}/) {
+  } elsif (s/^bibliography::\[\]$/\\bibliography{$bibfile}/) {
+  } elsif (s/^:(\w+)num: (\d+)$/\\setcounter{$1}{$2}/) {
+  } elsif (s/^:(\w+)num: \+(\d+)$/\\addtocounter{$1}{$2}/) {
+  } elsif (s/^<<<$/\\newpage/) {
   } else {
     s/\[{2}([\w:]+)\]{2}/\n\\label{$1}\n/;
     s/footnote:\[(.+?)\]/\\footnote{$1}/g;
