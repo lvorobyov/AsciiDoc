@@ -11,6 +11,7 @@ use Image::Size;
 my %attrs;
 my @rspans;
 my($listenv, $tabenv, $ncols, $title, $thead, $verbenv, $bibfile);
+my $sectnums = '*';
 
 sub get_width {
   my $width = 1;
@@ -26,8 +27,8 @@ sub get_width {
 sub to_latex {
   $_ = shift;
   my $end = shift // '';
-  s/^= (.+)/\\chapter{$1}/;
-  s/^==(=*) (.+)/\\$1section{$2}/;
+  s/^= (.+)/\\chapter${sectnums}{$1}/;
+  s/^==(=*) (.+)/\\$1section${sectnums}{$2}/;
   while (s/\\((?:sub)?)=/\\$1sub/) {}
   if (s/^\[(?!\[)(.+?)\"?\](?!\])$//) {
     for (split /\"?,(?=\w+=)/, $1) {
@@ -86,6 +87,8 @@ sub to_latex {
   } elsif (s/^:(\w+)num: (\d+)$/\\setcounter{$1}{$2}/) {
   } elsif (s/^:(\w+)num: \+(\d+)$/\\addtocounter{$1}{$2}/) {
   } elsif (s/^<<<$/\\newpage/) {
+  } elsif (s/^:(!?)sectnums(!?):$//) {
+	  $sectnums = ($1 or $2)? '*' : '';
   } else {
     s/\[{2}([\w:]+)\]{2}/\n\\label{$1}\n/;
     s/footnote:\[(.+?)\]/\\footnote{$1}/g;
