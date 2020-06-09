@@ -80,7 +80,7 @@ sub to_latex {
     $_ = qq($pre\\inputminted$scl\{$lang\}{$src}$post);
   } elsif (s/^latexmath:\[\$\$\s*(.+?)\s*\$\$\]\s*\[{2}([\w:]+)\]{2}/\\begin{equation}\\label{$2}\n$1\n\\end{equation}/) {
   } elsif (s/^:toc:$/\\tableofcontents/) {
-  } elsif (s/^:bibtex-file: (.+)$//) {
+  } elsif (s/^:bibtex-file: (.+?)(?:\.bib)?$//) {
 	  $bibfile = $1;
   } elsif (s/^:bibtex-style: (.+)$/\\bibliographystyle{$1}/) {
   } elsif (s/^bibliography::\[\]$/\\bibliography{$bibfile}/) {
