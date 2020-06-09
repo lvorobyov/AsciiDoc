@@ -15,7 +15,7 @@ latexmath:[$$ 2 : 3 $$] [[eq:relation]]
 Next, suppose that beginners in small science of animal say footnote:[Regardless rank or social status]
 dogs definitely bigger then cats. Well, but there is a new surprised relation? that he don't know.
 
-As explained in <<towards_animals>> more and more kings of gods are smallest that common cats.
+As explained in cite:[towards_animals] more and more kings of gods are smallest that common cats.
 
 More information in http://www.animals.com/dogs and http://www.drawbacks.com[Drawback]
 );
