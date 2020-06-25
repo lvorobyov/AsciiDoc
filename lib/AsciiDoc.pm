@@ -82,7 +82,7 @@ sub to_latex {
     $scope{firstline} = $3 if (defined $3);
     $scope{lastline} = $4 if (defined $4);
     $lang =~ s/^(h|cxx|hpp)$/cpp/;
-    $lang =~ s/^(txt|idl|wrl)$/text/;
+    $lang =~ s/^(txt|idl|wrl|tt2?)$/text/;
     $lang =~ s/^x3d$/xml/;
     $lang =~ s/^m$/matlab/;
     my @arr = map {qq($_=$scope{$_})} keys %scope;
