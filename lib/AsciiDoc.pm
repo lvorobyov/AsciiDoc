@@ -47,12 +47,16 @@ sub to_latex {
       $_ = qq(\\end{$verbenv});
       $verbenv = undef;
     }
-  } elsif (/^--$/) {
+  } elsif (s/^--$//) {
 	unless (defined $block) {
 		if ($attrs{abstract}) {
 			delete $attrs{abstract};
 			$block = 'abstract';
-			$_ = qq(\\begin{$block});
+			if ($title) {
+				$_ = qq(\\renewcommand{\\abstractname}{$title}\n);
+				$title = undef;
+			}
+			$_ .= qq(\\begin{$block})
 		}
 	} else {
 		$_ = qq(\\end{$block});

@@ -21,6 +21,7 @@ The brief annotation.
 ok(process_ad($ad) eq $tex, 'one paragraph');
 
 $ad = q(
+.Abstract
 [abstract]
 --
 The brief annotation.
@@ -30,6 +31,7 @@ Keywords: annotation.
 );
 
 $tex = q(
+\renewcommand{\abstractname}{Abstract}
 \begin{abstract}
 The brief annotation.
 
