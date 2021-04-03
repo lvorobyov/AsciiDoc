@@ -1,0 +1,51 @@
+AsciiDoc-ToLaTeX version 0.02
+=============================
+
+This package allows you to translate Asciidoc documents to LaTeX files for further processing.
+
+== INSTALLATION
+
+To install this module type the following:
+
+```
+perl Makefile.PL
+make
+make test
+make install
+```
+
+== USING
+
+To create new document copy the folder cmake in your directory and type the followind into CMakeLists.txt:
+
+```
+cmake_minimum_required(VERSION 3.12)
+project(your_project_name)
+list(APPEND CMAKE_MODULE_PATH "cmake")
+include(CsoiTEX)
+
+add_tex(your_document file_name.adoc links.bib)
+```
+
+Then you can open the torminal and run:
+
+```
+mkdir build && cd build
+cmake .. && make -j all
+```
+
+== DEPENDENCIES
+
+There are one dependency: Image::Size.
+
+== COPYRIGHT AND LICENCE
+
+The package is provided as-is and without any warranty to the extent permitted by applicable law.
+
+Copyright (C) 2019 by Лев Воробьёв
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself, either Perl version 5.26.1 or,
+at your option, any later version of Perl 5 you may have available.
+
+
