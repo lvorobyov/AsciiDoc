@@ -1,5 +1,7 @@
-Revision history for AsciiDoc
+Revision history for AsciiDoc::ToLaTeX
 
 0.01    19 May 2019 / 19:02
         First version, released on an unsuspecting world.
 
+0.02    25 Jnr 2020
+        Added support for multi-paragraph annotations.
