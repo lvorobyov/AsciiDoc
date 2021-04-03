@@ -3,7 +3,7 @@ use strict;
 use warnings;
 use Test::More tests => 4;
 
-use_ok( 'AsciiDoc' );
+use_ok( 'AsciiDoc::ToLaTeX' );
 
 my $ad = <<AD;
 My list:

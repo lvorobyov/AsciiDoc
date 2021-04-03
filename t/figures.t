@@ -3,7 +3,7 @@ use strict;
 use warnings;
 use Test::More tests => 5;
 
-use_ok('AsciiDoc');
+use_ok('AsciiDoc::ToLaTeX');
 
 my $ad = <<AD;
 image::fig/blackness.png[Black square of Malevich]

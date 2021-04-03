@@ -3,7 +3,7 @@ use strict;
 use warnings;
 use Test::More tests => 5;
 
-use_ok('AsciiDoc');
+use_ok('AsciiDoc::ToLaTeX');
 
 ok(to_latex('= H1') eq '\chapter{H1}', 'chapter');
 ok(to_latex('== H2') eq '\section{H2}', 'seciton');

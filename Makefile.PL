@@ -4,10 +4,10 @@ use warnings;
 use ExtUtils::MakeMaker;
 
 my %WriteMakefileArgs = (
-    NAME             => 'AsciiDoc',
-    AUTHOR           => q{Lev Vorobjev <lev.vorobej@rambler.ru>},
-    VERSION_FROM     => 'lib/AsciiDoc.pm',
-    ABSTRACT_FROM    => 'lib/AsciiDoc.pm',
+    NAME             => 'AsciiDoc::ToLaTeX',
+    AUTHOR           => q{Lev Vorobyov <lev.vorobyov@rambler.ru>},
+    VERSION_FROM     => 'lib/AsciiDoc/ToLaTeX.pm',
+    ABSTRACT_FROM    => 'lib/AsciiDoc/ToLaTeX.pm',
     EXE_FILES        => ['bin/ad2tex.pl'],
     MIN_PERL_VERSION => '5.006',
     CONFIGURE_REQUIRES => {

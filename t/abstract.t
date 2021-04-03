@@ -3,7 +3,7 @@ use strict;
 use warnings;
 use Test::More tests => 3;
 
-use_ok('AsciiDoc');
+use_ok('AsciiDoc::ToLaTeX');
 
 my $ad = q(
 [abstract]

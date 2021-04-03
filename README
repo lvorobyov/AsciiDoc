@@ -1,4 +1,4 @@
-AsciiDoc
+AsciiDoc::ToLaTeX
 
 The README is used to introduce the module and provide instructions on
 how to install the module, any machine dependencies it may have (for
@@ -45,7 +45,7 @@ You can also look for information at:
 
 LICENSE AND COPYRIGHT
 
-This software is Copyright (c) 2019 by Lev Vorobjev.
+This software is Copyright (c) 2019 by Lev Vorobyov.
 
 This is free software, licensed under:
 

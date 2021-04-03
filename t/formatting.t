@@ -3,7 +3,7 @@ use strict;
 use warnings;
 use Test::More tests => 3;
 
-use_ok('AsciiDoc');
+use_ok('AsciiDoc::ToLaTeX');
 
 my $ad = q(
 The _coolest_ assignment in Perl5 *world* is typesetting beautiful documents as write an [underline]#essay# in prose or poem.

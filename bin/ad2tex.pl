@@ -4,7 +4,7 @@ use warnings FATAL => 'all';
 use 5.010;
 use utf8;
 
-use AsciiDoc;
+use AsciiDoc::ToLaTeX;
 
 while (<>) {
   chomp;

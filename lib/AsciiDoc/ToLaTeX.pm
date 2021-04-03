@@ -1,4 +1,4 @@
-package AsciiDoc;
+package AsciiDoc::ToLaTeX;
 use strict;
 use warnings FATAL => 'all';
 use base 'Exporter';
@@ -267,12 +267,53 @@ __END__
 
 =head1 NAME
 
-AsciiDoc - convert documents from AsciiDoc to LaTeX
+AsciiDoc::ToLaTeX - translate documents from AsciiDoc to LaTeX
 
 =head1 SYNOPSIS
 
-  use AsciiDoc;
+  use AsciiDoc::ToLaTeX;
   # convert one line
   print to_latex('The text with _formatting_ and `code`.');
+
+=head1 DESCRIPTION
+
+AsciiDoc is a text markup language. This package allows you to translate AsciiDoc documents to LaTeX files. Then you may print its to pdf.
+
+=head1 FUNCTIONS
+
+=over 4
+
+=item to_latex
+
+  $latex = to_latex($asciidoc);
+
+Translates AsciiDoc strings to LaTeX strings.
+This function is exported by default.
+
+=item process_ad
+
+  $latex = process_ad($asciidoc);
+
+Translates AsciiDoc multiline text to LaTeX text.
+This function is exported by default.
+
+=back
+
+=head1 SEE ALSO
+
+L<Swim> can be used as alternative to AscciDoc.
+
+=head1 REPOSITORY
+
+L<https://github.com/lvorobyov/AsciiDoc-ToLaTeX>
+
+=head1 AUTHOR
+ 
+Lev Vorobyov E<lt>lev.vorobyov@rambler.ruE<gt>
+ 
+=head1 COPYRIGHT
+ 
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
 
 =cut
