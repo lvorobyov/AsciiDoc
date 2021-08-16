@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 use strict;
 use warnings;
-use Test::More tests => 6;
+use Test::More tests => 7;
 
 use_ok( 'AsciiDoc::ToLaTeX' );
 
@@ -18,6 +18,20 @@ abcd
 TEX
 
 ok(process_ad($ad) eq $tex, 'verbatim');
+
+$ad = <<AD;
+----
+abcd
+----
+AD
+
+$tex = <<TEX;
+\\begin{verbatim}
+abcd
+\\end{verbatim}
+TEX
+
+ok(process_ad($ad) eq $tex, 'verbatim2');
 
 $ad = <<AD;
 ```ruby

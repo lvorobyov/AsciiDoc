@@ -39,7 +39,7 @@ sub to_latex {
     return '';
   }
   while (s/(\[.+?)\*(.+?\])/$1\\times$2/g) {}
-  if (/```(\w+)?/) {
+  if (/(?:----|```(\w+)?)/) {
     unless (defined $verbenv) {
       $verbenv = $1 ? 'minted' : 'verbatim';
       $_ = qq(\\begin{$verbenv}) . ($1 ? qq({$1}) : '');
