@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 use strict;
 use warnings;
-use Test::More tests => 4;
+use Test::More tests => 5;
 
 use_ok( 'AsciiDoc::ToLaTeX' );
 
@@ -58,6 +58,22 @@ $expect = <<TEX;
 TEX
 
 ok(process_ad($ad) eq $expect, 'enum_with_start');
+
+$ad = <<AD;
+[[AD]] AsciiDoc:: item
+[[TEX]] LaTeX:: item
+
+AD
+
+$expect = <<TEX;
+\\begin{description}
+\\item [AsciiDoc\\label{AD}] item
+\\item [LaTeX\\label{TEX}] item
+\\end{description}
+
+TEX
+
+ok(process_ad($ad) eq $expect, 'description');
 
 done_testing();
 

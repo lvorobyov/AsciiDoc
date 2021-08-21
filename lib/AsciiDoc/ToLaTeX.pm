@@ -145,6 +145,11 @@ sub to_latex {
       my $start = ($1 eq '-' or not $2) ? '' : qq([start=$2]);
       $_ = qq(\\begin{$listenv}$start\n) . $_;
     }
+  } elsif (s/((?:\\label\{[\w:]+\})?)\s*([^\[\]]+)::/\\item [$2$1]/) {
+    unless (defined $listenv) {
+      $listenv = 'description';
+      $_ = qq(\\begin{$listenv}\n) . $_;
+    }
   } elsif (/^$/) {
     $_ = qq(\\end{$listenv}\n) if (defined $listenv);
     $listenv = undef;
