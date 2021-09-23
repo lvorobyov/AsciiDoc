@@ -10,8 +10,9 @@ use Image::Size;
 
 my %attrs;
 my @rspans;
-my($listenv, $tabenv, $parenv, $block, $ncols, $title, $thead, $verbenv, $bibfile);
+my($listenv, $tabenv, $parenv, $block, $ncols, $title, $thead, $verbenv, $bibfile, $bibprefix);
 my $sectnums = '';
+$bibprefix = 'print';
 
 sub get_width {
   my $width = 1;
@@ -100,8 +101,9 @@ sub to_latex {
   } elsif (s/^:toclevels: (\d+)$/\\setcounter{tocdepth}{$1}/) {
   } elsif (s/^:bibtex-file: (.+?)(?:\.bib)?$//) {
 	  $bibfile = $1;
+      $bibprefix = '';
   } elsif (s/^:bibtex-style: (.+)$/\\bibliographystyle{$1}/) {
-  } elsif (s/^bibliography::\[\]$/\\bibliography{$bibfile}/) {
+  } elsif (s/^bibliography::\[\]$/\\${bibprefix}bibliography{$bibfile}/) {
   } elsif (s/^:toc-title: (.+)$/\\renewcommand{\\contentsname}{$1}/) {
   } elsif (s/^:bib-title: (.+)$/\\renewcommand{\\bibname}{$1}/) {
   } elsif (s/^:(\w+)num: (\d+)$/\\setcounter{$1}{$2}/) {
